@@ -3,7 +3,7 @@
     <MapboxGeogeometryPolygon :path="routeCoordinates">
       <MapboxGeogeometryLine
         :width="6"
-        color="#3c4f78"
+        color="#d22428"
         join="round"
         cap="round"
       />
@@ -39,7 +39,7 @@ const store = useStore()
 
 const mapOptions = {
   accessToken: MAPBOX_ACCESS_TOKEN,
-  style: 'mapbox://styles/mapbox/streets-v12',
+  style: 'mapbox://styles/barokkeinfluencers/cle8r22w8001e01q1963x5wo8',
   center: routeCenter,
   zoom: 9,
   bounds: routeBounds,
