@@ -1,7 +1,7 @@
-export const mapboxAPIKey =
-  'pk.eyJ1IjoiYmFyb2trZWluZmx1ZW5jZXJzIiwiYSI6ImNsZTQ1aGo4cDBmb2MzcGx4b2ZiYnZlZTAifQ.oydFz-mErMMXBOuqJY093Q'
+import { getBoundsOfCoordinates, getCenterOfCoordinates } from '@/lib/mapbox'
+import type { Position } from 'geojson'
 
-export const routeCoordinates = [
+export const routeCoordinates: Position[] = [
   [4.40368, 51.22108],
   [4.40396, 51.22109],
   [4.40435, 51.22113],
@@ -136,17 +136,5 @@ export const routeCoordinates = [
   [4.40368, 51.22108],
 ]
 
-export const routeGeoJSON = {
-  type: 'FeatureCollection',
-  name: 'tracks',
-  features: [
-    {
-      type: 'Feature',
-      properties: {},
-      geometry: {
-        type: 'MultiLineString',
-        coordinates: routeCoordinates,
-      },
-    },
-  ],
-}
+export const routeCenter = getCenterOfCoordinates(routeCoordinates)
+export const routeBounds = getBoundsOfCoordinates(routeCoordinates)

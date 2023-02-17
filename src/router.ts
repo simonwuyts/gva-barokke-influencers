@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import LanguageView from './views/LanguageView.vue'
+import MapView from './views/MapView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -8,6 +9,11 @@ const router = createRouter({
       path: '/',
       name: 'language',
       component: LanguageView,
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: MapView,
     },
   ],
 })

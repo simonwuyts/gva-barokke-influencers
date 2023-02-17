@@ -1,12 +1,14 @@
+import { fetchPointsOfInterest } from '@/lib/sanity'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
+import type { PointOfInterest } from './types'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export const useStore = defineStore('global', () => {
+  const pointsOfInterest = ref<PointOfInterest[]>([])
+
+  async function getPointsOfInterest() {
+    pointsOfInterest.value = await fetchPointsOfInterest()
   }
 
-  return { count, doubleCount, increment }
+  return { pointsOfInterest, getPointsOfInterest }
 })
