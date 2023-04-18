@@ -5,8 +5,21 @@
   font-size: 62.5%;
 }
 
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   color: $color-blue;
   font-family: $font-family-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
 }

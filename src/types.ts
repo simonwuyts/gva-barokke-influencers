@@ -1,8 +1,7 @@
 export interface PointOfInterestContent {
   title?: string
-  subtitle?: string
-  description?: any
-  audio?: any
+  description?: any[]
+  audio?: string
 }
 
 export interface PointOfInterest {
@@ -20,7 +19,17 @@ export interface PointOfInterest {
       hex: string
     }
   }
-  image?: any
+  image?: string
   contentEn: PointOfInterestContent
   contentNl: PointOfInterestContent
+}
+
+interface SettingsContent {
+  introduction: any[]
+  colofon: any[]
+}
+
+export interface Settings {
+  settingsNl: SettingsContent
+  settingsEn: SettingsContent
 }

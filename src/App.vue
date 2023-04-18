@@ -3,7 +3,15 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
+import { useStore } from './store'
+
+const store = useStore()
+
+onMounted(async () => {
+  await store.getSettings()
+})
 </script>
 
 <style>

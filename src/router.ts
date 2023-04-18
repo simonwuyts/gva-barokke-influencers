@@ -1,19 +1,22 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import LanguageView from './views/LanguageView.vue'
-import MapView from './views/MapView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'language',
-      component: LanguageView,
+      name: 'home',
+      component: () => import('./views/HomeView.vue'),
     },
     {
       path: '/map',
       name: 'map',
-      component: MapView,
+      component: () => import('./views/MapView.vue'),
+    },
+    {
+      path: '/reset',
+      name: 'reset',
+      component: () => import('./views/ResetView.vue'),
     },
   ],
 })

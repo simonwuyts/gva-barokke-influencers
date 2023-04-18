@@ -5,7 +5,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "lib": ["ESNext", "DOM"],
+    "target": "ES2015",
+    "ignoreDeprecations": "5.0"
   },
 
   "references": [

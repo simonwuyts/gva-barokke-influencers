@@ -15,8 +15,7 @@ defineProps<{
 .map-marker {
   background: #000;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 0.1rem rgba(#fff, 0.6),
-    0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 0.1rem rgba(#000, 0.1), 0 0 0 0.1rem rgba(#fff, 0.5);
   color: #fff;
   cursor: pointer;
   display: grid;
