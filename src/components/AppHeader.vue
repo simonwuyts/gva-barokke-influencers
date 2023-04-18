@@ -39,7 +39,7 @@ const colofonIsVisible = ref(false)
 
 .header {
   align-items: center;
-  background: $color-brown;
+  background: $color-brown url('/header-bg.svg') no-repeat 0 0 / contain;
   color: #fff;
   display: flex;
   flex: none;

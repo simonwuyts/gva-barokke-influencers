@@ -20,8 +20,8 @@ defineProps<{
 
 <style lang="scss" scoped>
 .content {
-  background: #fff url('/page-bg.jpg') no-repeat center bottom / cover;
-  background-attachment: fixed;
+  // background: #fff url('/page-bg.jpg') no-repeat center bottom / cover;
+  // background-attachment: fixed;
   display: flex;
   flex-direction: column;
   flex: 1 1 0;

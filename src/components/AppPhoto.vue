@@ -28,6 +28,7 @@ defineProps<{
   height: 100%;
   max-height: 90vw;
   object-fit: cover;
+  object-position: top center;
   width: 100%;
 }
 </style>
