@@ -49,9 +49,12 @@ function close() {
 
 .overlay__sheet {
   background-color: #fff;
+  border-radius: 1.2rem 1.2rem 0 0;
+  box-shadow: 0 -2rem 8rem rgba(#000, 0.1), 0 -1rem 2rem rgba(#000, 0.1),
+    0 -0.5rem 1rem rgba(#000, 0.1);
   bottom: 0;
   left: 0;
-  max-height: 100%;
+  max-height: calc(100% - 1.6rem);
   opacity: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;

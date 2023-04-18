@@ -31,3 +31,21 @@ onUnmounted(async () => {
   }
 })
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/variables';
+
+.mapboxgl-user-location-dot,
+.mapboxgl-user-location-dot:before {
+  background-color: $color-red;
+}
+
+.mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:after,
+.mapboxgl-user-location-show-heading .mapboxgl-user-location-heading:before {
+  border-bottom-color: $color-red;
+}
+
+.mapboxgl-user-location-accuracy-circle {
+  background-color: rgba($color-red, 0.2);
+}
+</style>

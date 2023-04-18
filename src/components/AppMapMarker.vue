@@ -11,7 +11,7 @@ defineProps<{
 }>()
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .map-marker {
   background: #000;
   border-radius: 50%;
@@ -26,8 +26,8 @@ defineProps<{
 
 .map-marker__icon {
   display: block;
-  height: 1.6rem;
-  width: 1.6rem;
+  height: 2rem;
+  width: 2rem;
 
   & > * {
     display: block;
