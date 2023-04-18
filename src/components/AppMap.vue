@@ -3,7 +3,7 @@
     <MapboxGeogeometryPolygon :path="routeCoordinates">
       <MapboxGeogeometryLine
         :width="6"
-        color="#3c4f78"
+        color="#754c00"
         join="round"
         cap="round"
       />
