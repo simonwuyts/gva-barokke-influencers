@@ -53,6 +53,7 @@ function close() {
   left: 0;
   max-height: 100%;
   opacity: 0;
+  -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   padding: 2.4rem;
   position: absolute;

@@ -3,6 +3,7 @@
     <AppLogo />
     <div class="header__actions">
       <AppIcon
+        v-if="store.contentLanguage"
         name="info"
         class="header__action"
         @click="colofonIsVisible = true"
