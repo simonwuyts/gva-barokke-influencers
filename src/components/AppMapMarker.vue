@@ -1,6 +1,7 @@
 <template>
   <button type="button" class="map-marker" :style="{ background: color }">
-    <div class="map-marker__icon" v-html="icon"></div>
+    <div v-if="icon" class="map-marker__icon" v-html="icon"></div>
+    <div v-if="label" class="map-marker__label">{{ label }}</div>
   </button>
 </template>
 
@@ -8,10 +9,13 @@
 defineProps<{
   color?: string
   icon?: string
+  label?: string
 }>()
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/variables';
+
 .map-marker {
   background: #000;
   border-radius: 50%;
@@ -38,5 +42,11 @@ defineProps<{
   svg * {
     stroke: #fff;
   }
+}
+
+.map-marker__label {
+  font-family: $font-family-sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 </style>

@@ -5,12 +5,30 @@ import { computed, ref } from 'vue'
 import type { PointOfInterest, Settings } from './types'
 
 export const useStore = defineStore('global', () => {
+  // Geolocation
+
+  const geolocationControl = ref<any>()
+
   // Language
 
   const contentLanguage = useStorage<string | null>('contentLanguage', null)
 
   function setContentLanguage(language: 'nl' | 'en') {
     contentLanguage.value = language
+  }
+
+  function switchContentLanguage() {
+    switch (contentLanguage.value) {
+      case 'en':
+        contentLanguage.value = 'nl'
+        break
+      case 'nl':
+        contentLanguage.value = 'en'
+        break
+      default:
+        contentLanguage.value = 'nl'
+        break
+    }
   }
 
   // Settings
@@ -36,6 +54,16 @@ export const useStore = defineStore('global', () => {
 
   const pointsOfInterest = ref<PointOfInterest[]>([])
   const selectedPointOfInterestId = ref<null | string>(null)
+
+  const sortedPointsOfInterest = computed(() => {
+    const regulars = pointsOfInterest.value
+      .filter((point) => !point.sattelite)
+      .sort((a, b) => a.number - b.number)
+    const sattelites = pointsOfInterest.value
+      .filter((point) => point.sattelite)
+      .sort((a, b) => a.number - b.number)
+    return [...regulars, ...sattelites]
+  })
 
   const selectedPointOfInterest = computed(() => {
     if (selectedPointOfInterestId.value !== null) {
@@ -75,12 +103,15 @@ export const useStore = defineStore('global', () => {
   }
 
   return {
+    geoLocationControl: geolocationControl,
     contentLanguage,
     setContentLanguage,
+    switchContentLanguage,
     settings,
     currentSettings,
     getSettings,
     pointsOfInterest,
+    sortedPointsOfInterest,
     selectedPointOfInterestId,
     selectedPointOfInterest,
     selectedPointOfInterestContent,

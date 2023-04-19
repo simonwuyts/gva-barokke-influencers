@@ -16,7 +16,7 @@
     >
       <template #icon>
         <AppMapMarker
-          :icon="point.category?.icon"
+          :label="generateMarkerLabel(point)"
           :color="point.category?.color?.hex"
         />
       </template>
@@ -29,8 +29,9 @@
 <script setup lang="ts">
 import AppMapCurrentLocation from '@/components/AppMapCurrentLocation.vue'
 import AppMapMarker from '@/components/AppMapMarker.vue'
-import { routeBounds, routeCenter, routeCoordinates } from '@/lib/data'
+import { pointsBounds, routeCenter, routeCoordinates } from '@/lib/data'
 import { MAPBOX_ACCESS_TOKEN } from '@/lib/mapbox'
+import { generateMarkerLabel } from '@/lib/sanity'
 import { useStore } from '@/store'
 import {
   MapboxGeogeometryLine,
@@ -51,7 +52,7 @@ const mapOptions = {
   mapStyle: 'mapbox://styles/barokkeinfluencers/cle8r22w8001e01q1963x5wo8',
   center: routeCenter,
   zoom: 9,
-  bounds: routeBounds,
+  bounds: pointsBounds,
   fitBoundsOptions: {
     padding: 40,
   },

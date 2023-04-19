@@ -53,16 +53,17 @@ function close() {
   box-shadow: 0 -2rem 8rem rgba(#000, 0.1), 0 -1rem 2rem rgba(#000, 0.1),
     0 -0.5rem 1rem rgba(#000, 0.1);
   bottom: 0;
-  left: 0;
+  left: 50%;
   max-height: calc(100% - 1.6rem);
+  max-width: 50rem;
   opacity: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   padding: 2.4rem;
   position: absolute;
-  right: 0;
-  transform: translateY(50%);
+  transform: translateX(-50%) translateY(50%);
   transition: all 0.15s ease-in-out;
+  width: 100%;
   z-index: 30;
 }
 
@@ -75,7 +76,7 @@ function close() {
 
   .overlay__sheet {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 </style>

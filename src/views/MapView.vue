@@ -14,7 +14,10 @@
     >
       <AppPhoto :src="store.selectedPointOfInterest?.image" />
       <AppRichText>
-        <h1>{{ store.selectedPointOfInterestContent?.title }}</h1>
+        <h1>
+          {{ generateMarkerLabel(store.selectedPointOfInterest) }}.
+          {{ store.selectedPointOfInterestContent?.title }}
+        </h1>
         <div
           v-html="
             exportToHtml(store.selectedPointOfInterestContent?.description)
@@ -22,7 +25,9 @@
         />
       </AppRichText>
       <AppAudioPlayer :src="store.selectedPointOfInterestContent?.audio" />
-      <AppButton @click="close">Sluiten</AppButton>
+      <AppButton @click="close">
+        {{ store.contentLanguage === 'en' ? 'Close' : 'Sluiten' }}
+      </AppButton>
     </AppStack>
   </AppOverlay>
 </template>
@@ -37,7 +42,7 @@ import AppOverlay from '@/components/AppOverlay.vue'
 import AppPhoto from '@/components/AppPhoto.vue'
 import AppRichText from '@/components/AppRichText.vue'
 import AppStack from '@/components/AppStack.vue'
-import { exportToHtml } from '@/lib/sanity'
+import { exportToHtml, generateMarkerLabel } from '@/lib/sanity'
 import { useStore } from '@/store'
 import type { PointOfInterest } from '@/types'
 import 'mapbox-gl/dist/mapbox-gl.css'

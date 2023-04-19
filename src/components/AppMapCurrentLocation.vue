@@ -3,9 +3,12 @@
 </template>
 
 <script setup lang="ts">
+import { useStore } from '@/store'
 import mapboxgl, { Map } from 'mapbox-gl'
 import type Deferred from 'my-deferred'
 import { inject, onMounted, onUnmounted } from 'vue'
+
+const store = useStore()
 
 const vmb_map = inject('vmb_map', null) as Deferred<Map> | null
 const options = {
@@ -15,19 +18,20 @@ const options = {
   trackUserLocation: true,
   showUserHeading: true,
 }
-const vmb_geolocationControl = new mapboxgl.GeolocateControl(options)
+
+store.geoLocationControl = new mapboxgl.GeolocateControl(options)
 
 onMounted(async () => {
   if (vmb_map) {
     const map = await vmb_map.promise
-    map.addControl(vmb_geolocationControl)
+    map.addControl(store.geoLocationControl)
   }
 })
 
 onUnmounted(async () => {
   if (vmb_map) {
     const map = await vmb_map.promise
-    map.removeControl(vmb_geolocationControl)
+    map.removeControl(store.geoLocationControl)
   }
 })
 </script>

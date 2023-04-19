@@ -57,3 +57,14 @@ export async function fetchPointsOfInterest() {
 export function exportToHtml(input: any) {
   return toHTML(input)
 }
+
+export function generateMarkerLabel(point?: PointOfInterest | null) {
+  if (point) {
+    let result = point.number.toString()
+    if (point.sattelite) {
+      result = 'S' + result
+    }
+    return result
+  }
+  return ''
+}

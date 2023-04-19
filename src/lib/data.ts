@@ -138,3 +138,7 @@ export const routeCoordinates: Position[] = [
 
 export const routeCenter = getCenterOfCoordinates(routeCoordinates)
 export const routeBounds = getBoundsOfCoordinates(routeCoordinates)
+
+export const pointsBounds = [
+  4.3917969777, 51.2097062525, 4.414775488, 51.2421193266,
+]
