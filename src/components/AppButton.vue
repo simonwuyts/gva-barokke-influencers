@@ -1,6 +1,10 @@
 <template>
   <button
-    :class="['button', `button--${type}`, { 'button--disabled': disabled }]"
+    :class="[
+      'button',
+      `button--${type}`,
+      { 'button--disabled': disabled, 'button--inline': inline },
+    ]"
     type="button"
     v-bind="$attrs"
   >
@@ -21,9 +25,11 @@ withDefaults(
     type?: 'default' | 'primary'
     icon?: string
     iconRight?: string
+    inline?: boolean
   }>(),
   {
     type: 'primary',
+    inline: false,
   }
 )
 </script>
@@ -40,15 +46,24 @@ withDefaults(
   font-family: $font-family-sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
+  gap: 0.8rem;
   justify-content: center;
   line-height: 2.4rem;
-  padding: 0.8rem;
+  padding: 0.8rem 1.2rem;
   text-align: center;
   text-transform: uppercase;
   width: 100%;
 }
 
+.button--inline {
+  width: auto;
+}
+
 .button--primary {
   background-color: $color-red;
+}
+
+.button__icon {
+  font-size: 1.6rem;
 }
 </style>

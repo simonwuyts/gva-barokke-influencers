@@ -8,6 +8,12 @@ export const useStore = defineStore('global', () => {
   // Geolocation
 
   const geolocationControl = ref<any>()
+  const geolocationIsActive = ref(false)
+
+  function triggerGeolocation() {
+    console.log(geolocationControl.value)
+    geolocationControl.value.trigger()
+  }
 
   // Language
 
@@ -103,7 +109,9 @@ export const useStore = defineStore('global', () => {
   }
 
   return {
-    geoLocationControl: geolocationControl,
+    geolocationControl,
+    geolocationIsActive,
+    triggerGeolocation,
     contentLanguage,
     setContentLanguage,
     switchContentLanguage,

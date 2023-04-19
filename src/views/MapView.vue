@@ -2,6 +2,16 @@
   <AppHeader />
   <AppContent>
     <AppMap @click-marker="handleClick($event)" />
+    <div class="location-button">
+      <AppButton
+        type="default"
+        icon="near_me"
+        inline
+        @click="store.triggerGeolocation"
+      >
+        {{ store.contentLanguage === 'en' ? 'My location' : 'Mijn locatie' }}
+      </AppButton>
+    </div>
   </AppContent>
   <AppOverlay
     :visible="store.selectedPointOfInterestId !== null"
@@ -63,4 +73,10 @@ function handleClose() {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.location-button {
+  bottom: 0.8rem;
+  position: fixed;
+  right: 0.8rem;
+}
+</style>

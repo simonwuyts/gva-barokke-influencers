@@ -19,19 +19,27 @@ const options = {
   showUserHeading: true,
 }
 
-store.geoLocationControl = new mapboxgl.GeolocateControl(options)
+store.geolocationControl = new mapboxgl.GeolocateControl(options)
+
+store.geolocationControl.on('trackuserlocationstart', () => {
+  store.geolocationIsActive = true
+})
+
+store.geolocationControl.on('trackuserlocationend', () => {
+  store.geolocationIsActive = false
+})
 
 onMounted(async () => {
   if (vmb_map) {
     const map = await vmb_map.promise
-    map.addControl(store.geoLocationControl)
+    map.addControl(store.geolocationControl)
   }
 })
 
 onUnmounted(async () => {
   if (vmb_map) {
     const map = await vmb_map.promise
-    map.removeControl(store.geoLocationControl)
+    map.removeControl(store.geolocationControl)
   }
 })
 </script>
@@ -51,5 +59,9 @@ onUnmounted(async () => {
 
 .mapboxgl-user-location-accuracy-circle {
   background-color: rgba($color-red, 0.2);
+}
+
+.mapboxgl-ctrl-geolocate {
+  display: none !important;
 }
 </style>
