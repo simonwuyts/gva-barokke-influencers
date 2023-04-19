@@ -5,7 +5,7 @@
     <div class="location-button">
       <AppButton
         type="default"
-        icon="near_me"
+        icon="my_location"
         inline
         @click="store.triggerGeolocation"
       >
