@@ -38,6 +38,7 @@
     "sass": "^1.62.0",
     "typescript": "~5.0.4",
     "vite": "^4.2.1",
+    "vite-plugin-radar": "^0.7.0",
     "vue-tsc": "^1.2.0"
   }
 }
