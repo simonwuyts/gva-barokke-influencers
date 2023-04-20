@@ -44,7 +44,6 @@
               ? point.contentEn.title
               : point.contentNl.title
           "
-          :color="point.category?.color?.hex"
         />
       </AppRichText>
       <AppButton @click="close">
