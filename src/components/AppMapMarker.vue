@@ -17,9 +17,9 @@ defineProps<{
 @import '@/assets/styles/variables';
 
 .map-marker {
-  background: #000;
+  background: $color-red;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 0.1rem rgba(#000, 0.1), 0 0 0 0.1rem rgba(#fff, 0.5);
+  box-shadow: inset 0 0 0 0.1rem rgba(#000, 0.1);
   color: #fff;
   cursor: pointer;
   display: grid;

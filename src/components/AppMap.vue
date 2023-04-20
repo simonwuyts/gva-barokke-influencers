@@ -15,10 +15,7 @@
       @click="emit('clickMarker', point)"
     >
       <template #icon>
-        <AppMapMarker
-          :label="generateMarkerLabel(point)"
-          :color="point.category?.color?.hex"
-        />
+        <AppMapMarker :label="generateMarkerLabel(point)" />
       </template>
     </MapboxMarker>
     <AppMapCurrentLocation />

@@ -94,5 +94,6 @@ const listIsVisible = ref(false)
 
 .header__action {
   color: $color-beige;
+  cursor: pointer;
 }
 </style>
