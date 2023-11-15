@@ -64,10 +64,19 @@ export const useStore = defineStore('global', () => {
   const sortedPointsOfInterest = computed(() => {
     const regulars = pointsOfInterest.value
       .filter((point) => !point.sattelite)
-      .sort((a, b) => a.number - b.number)
+      .sort((a, b) => {
+        const numberA = parseInt(a.number.replace(/[^\d]/g, ''))
+        const numberB = parseInt(b.number.replace(/[^\d]/g, ''))
+        return numberA - numberB
+      })
+
     const sattelites = pointsOfInterest.value
       .filter((point) => point.sattelite)
-      .sort((a, b) => a.number - b.number)
+      .sort((a, b) => {
+        const numberA = parseInt(a.number.replace(/[^\d]/g, ''))
+        const numberB = parseInt(b.number.replace(/[^\d]/g, ''))
+        return numberA - numberB
+      })
     return [...regulars, ...sattelites]
   })
 

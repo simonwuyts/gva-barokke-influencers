@@ -60,7 +60,7 @@ export function exportToHtml(input: any) {
 
 export function generateMarkerLabel(point?: PointOfInterest | null) {
   if (point) {
-    let result = point.number.toString()
+    let result = point.number
     if (point.sattelite) {
       result = 'S' + result
     }

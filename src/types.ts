@@ -10,7 +10,7 @@ export interface PointOfInterest {
     lat: number
     lng: number
   }
-  number: number
+  number: string
   sattelite?: boolean
   category?: {
     name: string
